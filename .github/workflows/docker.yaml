@@ -17,6 +17,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
       - name: Create Image from Repository
-        run: docker build -t "ghcr.io/${{ github.actor }}/csc:dev"
+        run: docker build -t "ghcr.io/${{ github.actor }}/csc:dev" .
       - name: push image to Github Container Registry
         run: docker push "ghcr.io/${{ github.actor }}/csc:dev"
