@@ -1,0 +1,22 @@
+name: Create Container
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  buildAndPushToDev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Github Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - name: Create Image from Repository
+        run: docker build -t ghcr.io/${{ github.actor }}/csc
+      - name: push image to Github Container Registry
+        run: docker push ghcr.io/${{ github.actor }}/csc:dev
