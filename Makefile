@@ -1,2 +1,2 @@
 build:
-	docker build --no-cache -t csc:0.1 .
+	docker build --no-cache -t csc:0.2 .

@@ -27,5 +27,5 @@ kubectl -n <namespace> apply -f examples/pod.yaml
 ## Deploy in docker
 ---
 ```
-docker run -d ghcr.io/huynconfluent/csc:dev -n csc-tool
+docker run -d --name csc-tool ghcr.io/huynconfluent/csc:dev
 ```
